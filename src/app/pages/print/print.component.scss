@@ -1,0 +1,251 @@
+@import "../../../styles.scss";
+.print-main {
+    margin-top: 75px;
+
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .gral {
+        padding-top: 28px;
+
+        .prevPage {
+            color: $main-color;
+            font: $regular 15px/18px $roboto;
+            cursor: pointer;
+        
+            i {
+                font-size: 17px;
+                margin: 0 13px;    
+            }
+
+            span {
+                display: inline-block;
+                top: -1px;
+                position: relative;
+            }
+        }
+        .title {
+            font-size: 36px;
+            line-height: 43px;
+            color: $black;
+            font-family: $din;
+            font-weight: 300;
+            margin-top: 18px;
+        }
+        .infoBank {
+            margin-top: 15px;
+            
+            .logoBank {
+                width: 152px;
+                height: 152px;
+                background: $white 0% 0% no-repeat padding-box;
+                box-shadow: 0px 2px 5px #0000004D;
+                float: left;
+                border-radius:10px;
+                margin-bottom: 41px;
+                margin-right: 36px;
+                padding: 10px;
+            }
+            .textBank {
+                float: left;
+                width: 54%;
+
+                .gralText {
+                    font: $regular 14px/17px $roboto;
+                    color:$txt-gray;
+                    padding: 14px 0 0;
+
+                    span {
+                        font-weight: $bold;
+                    }
+                }
+
+                a {
+                    font: $bold 18px/22px $roboto;
+                    color: $main-color;
+                    text-decoration: none;
+                }
+                .contact {
+                    font: $regular 15px/18px $roboto;
+                    color: $main-color;
+                    margin-top: 3px;
+
+                    i {
+                        font-size: 15px;
+                        margin-right: 18px;
+                    }
+                }
+                .pay {
+                    width: 133px;
+                    height: 33px;
+                    background: $main-color;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font: $regular 13px/16px $roboto;
+                    padding: 9px;
+                    color: $white;
+                    display: block;
+                    text-align: center;
+                    margin-top: 6px;
+                    border: none;
+                    i {
+                        float: right;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        .nextSteps {
+            width: 100%;
+            max-width: 665px;
+            height: auto;
+            background: $light-main 0% 0% no-repeat padding-box;
+            border-radius: 10px;
+            padding: 20px 25px;
+            clear: both;
+
+            .subtitle {
+                font: $light 24px/29px $din;
+                color: $black;
+                margin-bottom: 19px;
+            }
+            .textSteps {
+                font: $light 12px/16px $roboto;
+                color: $txt-gray;
+                letter-spacing: 0.24px;
+            }
+        }
+        .rightTitle {
+            font: $bold 14px/17px $roboto;
+            letter-spacing: 0.35px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #CCCCCC;
+            max-width: 320px;
+            width: 100%;
+            margin: 12px auto 23px;
+            color: $dark-gray;
+        }
+        .box {
+            max-width: 304px;
+            width: 100%;
+
+            .boxLeft {    
+                margin: 43px 0 12px;
+            }
+            .clave {
+                width: 62%;
+                font: $regular 14px/17px $roboto;
+                float: left;
+                color: $gray;
+                margin-bottom: 12px;
+            }
+            .valor {
+                width: 38%;
+                font: $regular 14px/17px $roboto;
+                float: left;
+                color: $txt-gray;
+                margin-bottom: 12px;
+            }
+        }
+        .payments {
+            margin-top: 44px;
+            font: $regular 12px/14px $roboto;
+            color: $gray;
+            width: 100%;
+            max-width: 649px;
+            border-bottom: 1px solid $light-gray;
+            padding-bottom: 34px;
+
+            .titlePayments {
+                font: $bold 14px/17px $roboto;
+                letter-spacing: 0.35px;
+                color: $dark-gray;
+            }
+
+            .tHeader {
+                border-bottom: 1px solid $gray;
+                font: $regular 14px/17px $roboto;
+                color: $gray;
+                display: flex;
+                margin: 18px 0 17px;
+                padding-bottom: 9px;
+            }
+            .short {
+                width: 20%;
+                float: left;
+            }
+            .large {
+                width: 30%;
+                float: left;
+            }
+            .filePay {
+                margin-bottom: 8px;
+                display: flex;
+            }
+        }
+        .backAgree {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            background: #EEEEEE 0% 0% no-repeat padding-box;
+            border-radius: 10px;
+            margin: 0 auto;
+            padding: 40px 0;
+
+            .imgAgree {
+                width: 237px;
+                height: 272px;
+                background: $white 0% 0% no-repeat padding-box;
+                box-shadow: 0px 2px 5px #0000004D;
+                margin: 0 auto;
+                border-radius:10px;
+                .pdf-download {
+                    width: 80%;
+                    margin: 0 auto;
+                    display: block;
+                    padding-top: 20px;
+                }
+            }
+            .botones {
+                margin-top: 38px;
+                height: 33px;
+
+                .btnPrint {
+                    width: 133px;
+                    height: 33px;
+                    background: $light-main 0% 0% no-repeat padding-box;
+                    border: 0;
+                    border-radius: 4px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    cursor: pointer;
+                    font: $regular 15px/18px $roboto;
+                    padding: 7px 14px;
+                    color: $main-color; 
+                    i {
+                        float: right;
+                        font-size: 15px;
+                        padding-top: 2px;
+                    }
+                }
+                .contentBtnPrint {
+                    margin-left: 30%;
+                }
+            }
+        }
+        .note {
+            font: $regular 14px/20px $roboto;
+            color: $gray;
+            margin: 36px 0 57px;
+
+            span {
+                font-weight: $bold;
+            }
+        }
+    }
+}
+
+.imgDocDownload {
+    filter: opacity(0.8);
+}

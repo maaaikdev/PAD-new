@@ -1,0 +1,46 @@
+@import "../../../../styles.scss";
+
+.modal-program {
+  .modal-dialog {
+    margin: 0;
+    .modal-content {
+    padding: 2% 6%;
+    border-radius: 20px;
+    background-color: $white;
+    @media (min-width: 768px) {
+      background-image: url(/assets/images/all/Recurso_bg.svg);
+      background-position: center right;
+      background-repeat: no-repeat;
+    }
+    @media(max-width:767px){
+      border-radius: 0;
+      border: 0;
+      padding: 2% 7%;
+    }
+  }
+  }
+  .title {
+    color: $black;
+    font-family: $din;
+    font-size: 24px;
+    line-height: 28px;    
+    @media(max-width:767px){
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  small {
+    font-size: 11px;
+    color: $txt-gray;
+    font-family: $roboto;
+  }
+
+  .txt {
+    font-size: 14px;
+    color: $txt-gray;
+    font-family: $roboto;
+    span {
+      font-size: 18px !important;
+    }
+  }
+}

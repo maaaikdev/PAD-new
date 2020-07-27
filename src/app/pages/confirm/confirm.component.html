@@ -1,0 +1,81 @@
+<div class="container-fluid confirm-main">
+	<div class="step">
+		<!-- <div class="step">
+			<i class="fa fa-check-circle"></i><span>Negociar</span>
+		</div>
+		<div class="step">
+			<i class="fa fa-check-circle"></i><span>Seleccionar</span>
+		</div>
+		<div class="step">
+			<i class="fa fa-check-circle"></i><span>Confirmar</span>
+		</div> -->
+		<i class="fa fa-check-circle"></i><span>Negociar</span>		
+		<i class="fa fa-check-circle"></i><span>Seleccionar</span>		
+		<i class="fa fa-check-circle"></i><span>Confirmar</span>	
+	</div>
+	<div class="container gral">
+        	<div class="row justify-content-center">
+			<div class="col-12 order-0 order-md-0">
+				<div class="prevPage" (click)='back()'><i class="fa fa-chevron-left"></i><span>Volver a propuestas</span></div>
+				<div class="title d-block d-md-none">Aceptación de acuerdo de pago</div>
+			</div>
+			<div class="col-12 col-md-6 order-2 order-md-1">				
+				<div class="title d-none d-md-block">Aceptación de acuerdo de pago</div>
+				<div class="subtitle">1. Notificación de pago</div>
+				<div class="description">Los correos de notificaciones llegarán a <span>{{sesion.user.correo}}</span> 3 días antes de cada fecha de pago.</div>
+				<div class="subtitle">2. Firma</div>
+				<div class="description">Acepto pagar el plan de pago programado por un total de <span>$ {{select.offer.payment | currency:'COP':'':'1.2-2'}}</span> como se estipula en el <a (click)='open(select.offer.agreement.paymentAgreements)'>acuerdo de pago.</a></div>
+				<div class="label">Nombre completo</div>
+				<input type="text" class="form-control text-left inputDisabled" id="nombre" name="nombre" disabled value="{{sesion.user.nombre}} {{sesion.user.apellido}}" />
+				<div class="preview">
+					<div class="sign">{{sesion.user.nombre}} {{sesion.user.apellido}}</div>
+					Previsualización de firma
+				</div>
+				<div class="description">
+					<input *ngIf="sign.check == 1" checked type="checkbox" (click)='acceptCheck()' id="acepto" name="acepto" /><input *ngIf="sign.check != 1" type="checkbox" (click)='acceptCheck()' id="acepto" name="acepto" /> Estoy de acuerdo con la <a (click)='openSignature()'>Regulación de Firma Electrónica (ABRIR)</a>
+				</div>
+				<div class="finish">
+					<button *ngIf="sign.check == 1" (click)='confirmOffer(select.offer)'>Terminar <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+					<button *ngIf="sign.check != 1" disabled (click)='confirmOffer(select.offer)'>Terminar <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+				</div>
+			</div>
+			<div class="col-12 col-md-4 order-1 order-md-2">
+				<div class="purpleBox">
+					<div class="check">
+						<i class="fa fa-check-circle"></i>
+					</div>
+					<div class="itemPrice">Pagas <span>$ {{select.offer.payment | currency:'COP':'':'1.2-2'}}</span></div>
+					<div class="itemBefore">Antes <span>$ {{select.offer.paymentBefore | currency:'COP':'':'1.2-2'}}</span></div>
+					<div class="itemBefore">Ahorro <span class="sinTachado">$ {{select.offer.saving | currency:'COP':'':'1.2-2'}}</span></div>
+					<div class="dataPays">
+						<div class="linePay" *ngIf="select.offer.paymentInitial > 0">
+							<div class="left">Pago inicial</div>
+							<div class="left right">$ {{select.offer.paymentInitial | currency:'COP':'':'1.2-2'}}</div>
+						</div>
+						<div class="linePay">
+							<div class="left">Pago mensual</div>
+							<div class="left right">$ {{select.offer.paymentMonthly | currency:'COP':'':'1.2-2'}} <span *ngIf="select.offer.paymentInitial > 0">x{{select.offer.totalPayments - 1}}</span><span *ngIf="select.offer.paymentInitial == 0">x{{select.offer.totalPayments}}</span></div>
+						</div>
+						<div class="linePay">
+							<div class="left">Total pagos</div>
+							<div class="left right">{{select.offer.totalPayments}}</div>
+						</div>
+						<div class="linePay">
+							<div class="left">Inicio de pago</div>
+							<div class="left right">{{select.offer.paymentDate | date: 'dd MMMM yyyy'}}</div>
+						</div>
+						<button class="btn-l btn-link" id="SeeProgram" (click)="open(select.offer.agreement.paymentAgreements)">
+							<i class="fa fa-calculator" aria-hidden="true"></i>
+							<span>Ver programación de pagos</span>
+						</button>
+						<!-- <div class="programation">
+							<i class="fa fa-calendar-times"></i><span (click)='open(select.offer.agreement.paymentAgreements)'>Ver programación de pago</span>
+						</div>
+					</div> -->
+                </div>
+			</div>
+		</div>
+    </div>
+</div>
+<app-program></app-program>
+<app-sign></app-sign>

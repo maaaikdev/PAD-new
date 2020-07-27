@@ -1,0 +1,126 @@
+.btn{
+	width: 200px;
+	height: 40px;
+	font-size: 16px;
+	vertical-align: middle;
+	font-family: $roboto;
+	cursor: pointer;
+  margin: 10px auto;
+  max-width: 100%;
+	position: relative;
+	&.btn-secundary{
+    background-color: #F39734;
+    color:$white;
+    margin: 10px auto;
+    padding-top: 8px;
+    &:disabled{
+      background: $light-gray;
+      color:$txt-gray;
+      opacity: 1;
+		}
+		.arrow{
+			border: solid $white;
+			border-width: 0 2px 2px 0;
+			position: absolute;
+			right: 40px;
+			top: 18px;
+			padding: 4px;
+		}
+  }
+  &.round{
+    border-radius: 18px;
+  }
+	&.btn-outline{
+    border-color: $main-color;
+    color: $main-color;
+    &-light{
+      .arrow{
+        top: 22px;
+      }
+    }
+    .arrow{
+      border: solid $main-color;
+      border-width: 0 2px 2px 0;
+      position: absolute;
+      right: 17px;
+      top: 15px;
+      padding: 4px;
+    }
+  }
+  &.btn-outline-w{
+    border-color: $white;
+    color: $white;
+    padding-top: 10px;
+    &:hover{
+      background-color: $white;
+      color:$main-color;
+      .arrow{
+        border: solid $main-color;
+        border-width: 0 2px 2px 0;
+      }
+    }
+    .arrow{
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      position: absolute;
+      right: 17px;
+      top: 17px;
+      padding: 4px;
+    }
+  }
+  .icon{
+    display: inline-block;
+    width: 10%;
+  }
+}
+.btn-blue{
+  color: $white;
+  background-color: $blue;
+}
+.btn-dtc{
+  color: $white;
+  background-color: $midc;
+  .arrow{
+    border: solid $white;
+    border-width: 0 2px 2px  0;
+    position: absolute;
+    right: 17px;
+    top: 21px;
+    padding: 4px;
+  }
+}
+.btn-lg{
+	width: 300px;
+	height: 50px;
+	font-weight: bold;
+	text-align: center;
+}
+.arrow{
+  border: solid $main-color;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  &.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  &.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+  &.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  &.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+.link{
+  color: $main-color;
+  font-size: 14px;
+}
+.link-b {
+  color:$blue;
+}

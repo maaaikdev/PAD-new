@@ -1,0 +1,53 @@
+@import "../../../styles.scss";
+#loading {
+  .modal-content-loading {
+    // padding: 10px;
+    // border-radius: 20px;
+    // height: 450px;
+    // // background-image: url(/assets/images/backgrounds/bkground1.svg);
+    // background-size: cover;
+
+    background-color: #f1f1f7;
+    background-blend-mode: multiply;
+    background-image: url(/assets/images/backgrounds/bkground1.svg);
+    background-size: cover;
+    border: none;
+    border-radius: 20px;
+    max-width: 772px;
+    svg {
+      opacity: 2.5 !important; 
+    } 
+    
+  }
+  .title {
+    color: #08478E;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    line-height: 1em;
+    font-size: 35px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  .text{
+    font-size: 17px;
+    // color: $txt-gray;
+    font-family: $roboto;
+  }
+  .ico {
+    width: 80%;
+    max-width: 250px;
+  }
+  .points {
+    width: 100%;
+    max-width: 100px;
+  }
+  .close {
+    position: absolute;
+    right: 1em;
+    z-index: 9;
+  }
+  .animation {
+    max-width: 350px;
+  }
+}

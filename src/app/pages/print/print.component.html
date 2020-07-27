@@ -1,0 +1,166 @@
+<div class="container-fluid print-main">
+	<div class="container gral">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-12">
+				<div class="prevPage" (click)='backAdmin()'><i class="fa fa-chevron-left"></i><span>Volver al administrador</span></div>
+				<div *ngIf="debtService.debtSelect" class="title">Este es tu acuerdo con {{debtService.debtSelect.nameCompany}}</div>
+				<div *ngIf="select.state" class="title">Este es tu acuerdo con {{select.state.agreement.nameBank}}</div>
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8">
+				<div class="infoBank">
+					<div class="logoBank">
+						<img *ngIf="debtService.debtSelect" src="https://images-s3-ecs-sp-latam.s3.amazonaws.com/catchupon/aliados/{{debtService.debtSelect.nitCompany}}.png" width="132" alt="{{debtService.debtSelect.nameCompany}}" title="{{debtService.debtSelect.nameCompany}}" />
+						<img *ngIf="select.state" src="https://images-s3-ecs-sp-latam.s3.amazonaws.com/catchupon/aliados/{{select.nitCompany}}.png" width="132" alt="{{select.state.agreement.nameBank}}" title="{{select.state.agreement.nameBank}}" />
+					</div>
+					<div class="textBank">
+						<div *ngIf="debtService.debtSelect" class="gralText">Ante cualquier duda, puedes <span>ponerte en contacto</span> mediante los canales de atención del {{debtService.debtSelect.nameCompany}}<br /></div>
+						<div *ngIf="select.state" class="gralText">Ante cualquier duda, puedes <span>ponerte en contacto</span> mediante los canales de atención del {{select.state.agreement.nameBank}}<br /></div>
+						
+						<a *ngIf="select.offerBank" href="http://{{select.offerBank.website}}" target="_blank">{{select.offerBank.website}}</a>
+						<a *ngIf="select.state" href="http://{{select.state.parameters[2].value}}" target="_blank">{{select.state.parameters[2].value}}</a>
+						
+						<div *ngIf="select.offerBank" class="contact"><i class="fa fa-phone" aria-hidden="true"></i> {{select.offerBank.phone}}</div>
+						<div *ngIf="select.state" class="contact"><i class="fa fa-phone" aria-hidden="true"></i>{{select.state.parameters[0].value}}</div>
+						
+						<div *ngIf="select.offerBank" class="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>{{select.offerBank.email}}</div>
+						<div *ngIf="select.state" class="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i>{{select.state.parameters[3].value}}</div>
+						
+						<div *ngIf="select.offerBank">
+							<a *ngIf="select.offerBank.btnpay != ''" class="pay" target="_blank" href="{{select.offerBank.btnpay}}" (click)="pagarLinea()">Pagar en línea <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+						</div>
+						<div *ngIf="select.state">
+							<a *ngIf="select.state.parameters[4].value != ''" class="pay" target="_blank" href="{{select.state.parameters[4].value}}" (click)="pagarLinea()">Pagar en línea <i class="fa fa-angle-right" aria-hidden="true"></i></a> 
+						</div>
+					</div>
+				</div>
+				<div class="nextSteps">
+					<div class="subtitle">Tus próximos pasos...</div>
+					<div *ngIf="select.offerBank" class="textSteps" [innerHTML]="select.offerBank.termsAndConditions"></div>
+					<div *ngIf="select.state" class="textSteps" [innerHTML]="select.state.parameters[5].value"></div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="box">
+							<div class="rightTitle boxLeft">Información de la cuenta</div>
+
+							<div class="clave">Acreedor original</div>
+							<div *ngIf="debtService.debtSelect" class="valor">{{debtService.debtSelect.nameCompany}}</div>
+							<div *ngIf="select.state" class="valor">{{select.state.agreement.nameBank}}</div>
+
+							<div class="clave">No. de cuenta original</div>
+							<div *ngIf="debtService.debtSelect" class="valor">**** **** {{ debtService.debtSelect.numberAccount }} </div>
+							<div *ngIf="select.state" class="valor">**** **** {{ broker.account }}</div>
+
+							<div class="clave">Tipo de producto</div>
+							<div *ngIf="debtService.debtSelect" class="valor">{{debtService.debtSelect.nameProduct}}</div>
+							<div *ngIf="select.state" class="valor">{{select.state.agreement.nameProduct}}</div>
+
+							<div class="clave">Saldo inicial</div>
+							<div *ngIf="select.offer" class="valor">$ {{select.offer.paymentBefore | currency:'COP':'':'1.2-2'}}</div>
+							<div *ngIf="select.state" class="valor">$ {{select.state.agreement.initialBalance | currency:'COP':'':'1.2-2'}}</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6">
+						<div class="box">
+							<div class="rightTitle boxLeft">Información del pago</div>
+
+							<div class="clave">Nombre</div>
+							<div class="valor">{{sesion.user.nombre}} {{sesion.user.apellido}}</div>
+
+							<div class="clave">Correo de facturación</div>
+							<div class="valor">{{sesion.user.correo}}</div>
+
+							<div class="clave">Valor negociado</div>
+							<div *ngIf="select.offer" class="valor">$ {{select.offer.payment | currency:'COP':'':'1.2-2'}}</div>
+							<div *ngIf="select.state" class="valor">$ {{select.state.agreement.negotiatedValue | currency:'COP':'':'1.2-2'}}</div>
+							
+							<div class="clave">Total pagos</div>
+							<div *ngIf="select.offer" class="valor">{{select.offer.totalPayments}}</div>
+							<div *ngIf="select.state" class="valor">{{select.state.agreement.totalPayments}}</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-md-12">
+						<div class="payments">
+							<div class="titlePayments">Programación de pago</div>
+							<div class="tHeader">
+								<div class="short">No.</div>
+								<div class="large">Fecha</div>
+								<div class="large">Valor pago</div>
+								<div class="short">Estado</div>
+							</div>
+							<div *ngIf="select.offer">
+								<div class="filePay" *ngFor="let item of select.offer.agreement.paymentAgreements">
+									<div class="short">{{item.quota}}</div>
+									<div class="large">{{item.date | date: 'dd MMMM yyyy' }}</div>
+									<div class="large">$ {{item.amount | currency:'COP':'':'1.2-2'}}</div>
+									<div class="short">Programado</div>
+								</div>
+							</div>
+							<div *ngIf="select.state">
+								<div class="filePay" *ngFor="let item2 of select.state.agreement.paymentAgreements">
+									<div class="short">{{item2.number}}</div>
+									<div class="large">{{item2.agreementDate | date: 'dd MMMM yyyy' }}</div>
+									<div class="large">$ {{item2.agreementAmount | currency:'COP':'':'1.2-2'}}</div>
+									<div class="short">Programado</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-4">
+				<div class="rightTitle">Acuerdo de pago</div>
+				<div class="backAgree">
+					<div class="imgAgree">
+						<img class="imgDocDownload" src="assets/icons/pdf.svg" alt="Descargar acuerdo" class="pdf-download"/>
+					</div>
+					<div class="botones">
+						<div *ngIf="debtService.debtSelect" class="contentBtnPrint">
+							<button class="btnPrint" [attr.disabled]="loadingDownloadFile ? 'disabled' : null" [ngClass]="{'btnDisabled': loadingDownloadFile }" (click)='descargarPDF(debtService.debtSelect.de)'>
+								Descargar
+								<i *ngIf="!loadingDownloadFile" class="fa fa-download" aria-hidden="true"></i>
+								<i *ngIf="loadingDownloadFile" class="fa fa-spinner fa-spin"></i>
+							</button>
+						</div>
+						<div *ngIf="select.state" class="contentBtnPrint">
+							<button class="btnPrint" [attr.disabled]="loadingDownloadFile ? 'disabled' : null" [ngClass]="{'btnDisabled': loadingDownloadFile }" (click)='descargarPDF(select.de)'>
+								Descargar
+								<i *ngIf="!loadingDownloadFile" class="fa fa-download" aria-hidden="true"></i>
+								<i *ngIf="loadingDownloadFile" class="fa fa-spinner fa-spin"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div *ngIf="debtService.debtSelect" class="col-12 col-md-11 note">
+				Ten en cuenta que, si no pagas a tiempo tu(s) cuota(s), esta negociación puede ser anulada.<br /><br />
+				Una vez que <span>{{debtService.debtSelect.nameCompany}}</span> haya recibido y liquidado el pago de
+				acuerdo con las condiciones de esta negociación, <span>{{debtService.debtSelect.nameCompany}}</span>
+				actualizará tu deuda para reflejar que el pago ha sido exitoso, y si
+				<span>{{debtService.debtSelect.nameCompany}}</span> reporta información de manera eficaz a Datacrédito
+				Experian, la actualización se verá reflejada en tu historial de crédito.<br /><br />
+				Si el monto de condonación de tu deuda es igual o superior a $2.000.000, se le puede exigir a tu
+				acreedor que informe el valor de la condonación a la Superintendencia Financiera de Colombia. Debes
+				consultar con tu contador si esto tiene alguna consecuencia en tus impuestos.
+			</div>
+			<div *ngIf="select.state" class="col-12 col-md-11 note">
+				Ten en cuenta que, si no pagas a tiempo tu(s) cuota(s), esta negociación puede ser anulada.<br /><br />
+				Una vez que <span>{{select.state.agreement.nameBank}}</span> haya recibido y liquidado el pago de
+				acuerdo con las condiciones de esta negociación, <span>{{select.state.agreement.nameBank}}</span>
+				actualizará tu deuda para reflejar que el pago ha sido exitoso, y si
+				<span>{{select.state.agreement.nameBank}}</span> reporta información de manera eficaz a Datacrédito
+				Experian, la actualización se verá reflejada en tu historial de crédito.<br /><br />
+				Si el monto de condonación de tu deuda es igual o superior a $2.000.000, se le puede exigir a tu
+				acreedor que informe el valor de la condonación a la Superintendencia Financiera de Colombia. Debes
+				consultar con tu contador si esto tiene alguna consecuencia en tus impuestos.
+			</div>
+		</div>
+	</div>
+</div>
+<app-accept></app-accept>

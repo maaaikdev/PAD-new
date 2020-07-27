@@ -1,0 +1,153 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles/helpers/variables";
+@import "styles/helpers/typography";
+@import "styles/components/buttons";
+@import "styles/components/forms";
+@import "styles/components/modal";
+body {
+  font-family: $roboto !important;
+}
+// .container {
+//   padding: 5px 25px;
+// }
+.breadcrumb {
+  font-family: $roboto;
+  font-size: 14px;
+  display: flex;
+  color: $txt-gray;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  z-index: 1;
+}
+.header {
+  background-color: transparent;
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+  padding-top: 0px;
+  @media (min-width: 768px) {
+    padding-top: 15px;
+  }
+  @media(max-width:767px){
+    background-color: $main-color;
+  }
+  &.scrolled {
+    // background-color: $blue;
+    background-color: $main-color;
+    -webkit-transition: ease 0.3s;
+    transition: ease 0.3s;
+    padding-top: 5px;
+    .icon {
+      @media (min-width: 768px) {
+        width: 250px;
+      }
+    }
+  }
+  &.secundary {    
+    background-color: $main-color;
+    padding-top: 5px;
+    .arrow {
+      border: solid #ffffff;
+      border-width: 0 2px 2px 0;
+      padding: 2px;
+      top: 16px;
+      right: -6px;
+      position: absolute;
+    }
+  }
+}
+.midc {
+  background: $white;
+  color: $black;
+  text-align: center;
+  // padding: 5px 10px;
+  @media (min-width: 768px) {
+    text-align: left;
+    padding: 90px 40px;
+  }
+  .sub-title {
+    font-family: din-2014, sans-serif;
+    line-height: 20px;
+    font-size: 18px;
+    margin: 20px 20px;
+    @media (min-width: 768px) {
+      font-size: 35px;
+      line-height: 40px;
+      text-align: left;
+      margin: 40px auto;
+      padding-right: 20px;
+    }
+    h2 {      
+      font-weight: 600;
+    }
+  }
+  
+  .btn {
+    @media (min-width: 768px) {
+      width: 300px;
+      font-size: 20px;
+      height: 55px;
+    }
+  }
+  p {
+    font-size: 14px;
+    color: $txt-gray;
+    margin: 20px auto;
+    line-height: 18px;
+    @media (min-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 300;
+    }
+  }
+}
+
+.spinner:before {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	margin-left: -10px;
+	border-radius: 50%;
+	border: 2px solid #ffffff;
+	border-top-color: #000000;
+	animation: spinner .8s linear infinite;
+}
+
+.btnDisabled {
+  background: #6a68646e !important;
+  color: white !important;
+}
+
+:focus { 
+  outline-color: transparent; 
+  outline-style: none;
+}
+
+.btn_class {
+    background-color: transparent;
+    border: 1px solid #ababab;
+    color: #ababab;
+    padding: 7px 11px;
+    font-size: 13px;
+    border-radius: 20px;
+    margin: 4px 4px 4px 0;
+    cursor: none;
+ }
+ .btn_status {
+    background-color: transparent;
+    border: 1px solid #BA2F7D;
+    color:#BA2F7D;
+    padding: 7px 11px;
+    font-size: 13px;
+    border-radius: 20px;
+    margin: 4px 4px 4px 0;
+    cursor: none;
+ }

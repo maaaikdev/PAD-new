@@ -1,0 +1,141 @@
+@import "../../../styles.scss";
+.modal-deal {
+  padding-right: 0!important;
+  .modal-dialog {
+    @media(max-width:767px){
+      margin:0
+    }
+    .modal-content {
+      padding: 10px;
+      border-radius: 20px;
+      background-color: $white;
+      @media (min-width: 768px) {
+        background-image: url(/assets/images/all/negociacion2.svg);
+        background-position: center right;
+        background-repeat: no-repeat;        
+      }
+      @media(max-width:767px){
+        border-radius: 0;
+        border: 0;
+      }
+      .modal-header{
+        position: absolute;
+        right: 8px;
+        z-index: 2;
+        @media(max-width:767px){
+          right: -3px;
+          top: -3px;
+        }
+      }
+      .modal-body{
+        padding: 2rem!important;
+        @media(max-width:767px){
+          padding: 2rem 1rem!important;
+        }
+        .separate {
+          height: 1px;
+          width: 100%;
+          background-color: #ececec;
+        }
+        .img-modal {
+          width: 70%;
+        }
+      }
+      .btn-make {
+        width: 100%;
+        height: 52px;
+        background-color: $terciary-color;
+        border-radius: 8px;
+        text-align: center;
+        margin: 24px auto;
+        @media(max-width:767px){
+          height: 46px;
+          margin: 24px auto 8px;
+        }
+        &.btn-orange{
+          vertical-align: middle;
+          span {
+            font-family: $roboto;
+            font-size: 18px;
+            color: $white;
+            display: inline-block;
+            margin-right: 10px;
+            @media(max-width:767px){
+              font-size: 16px;
+            }
+          }
+          i {            
+            width: 10px;
+            height: 10px;
+            color: $white;
+            display: inline-block;
+            border: solid $white;
+            border-width: 0 2px 2px 0;
+          }
+        }
+      }
+    }
+  }
+  .title h3 {
+    color: $black;
+    font-family: $din;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 600;
+    @media(max-width:767px){
+      font-size: 18px;
+    }
+  }
+  small {
+    font-size: 11px;
+    color: $txt-gray;
+    font-family: $roboto;
+  }
+
+  .txt p{
+    font-size: 14px;
+    color: $txt-gray;
+    font-family: $roboto;
+    margin-bottom: 8px;
+    @media(max-width:767px){
+      font-size: 13px;
+    }
+    span {
+      font-size: 20px !important;
+    }
+  }
+  .txt p.price{
+    font-size: 20px;
+    font-weight: 600;
+    color:#000;
+  }
+}
+.positionSpinner {
+  right: 33px;
+  position: absolute;
+  top: 17px;
+}
+.form-control:disabled, .form-control[readonly] {
+  background-color: #fff!important;
+}
+.form-group .calendar {
+    top: 10px;
+    right: 20px;
+  @media(max-width:767px){
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    width: 15%;
+    height: 45px;
+  }  
+  i{
+    font-size: 20px;
+  }
+}
+
+::ng-deep ngb-datepicker {
+  left: -95px!important;
+  -webkit-box-shadow: 0px 0px 9px 0px rgba(93,83,237,1);
+-moz-box-shadow: 0px 0px 9px 0px rgba(93,83,237,1);
+box-shadow: 0px 0px 9px 0px rgba(93,83,237,1);
+}

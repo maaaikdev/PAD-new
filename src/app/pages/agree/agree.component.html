@@ -1,0 +1,166 @@
+<section class="agree-main">
+	<div class="container-fluid">
+		<div class="step">
+			<i class="fa fa-check-circle"></i><span>Negociar</span>
+			<i class="fa fa-check-circle"></i><span>Seleccionar</span>
+			<i class="fa fa-circle-o iconOff" aria-hidden="true"></i><span>Confirmar</span>
+		</div>
+		<div class="bg"></div>
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item">Ponte al día</li>
+					<li class="breadcrumb-item">Administrador de deudas</li>
+					<li class="breadcrumb-item active" aria-current="page">Selecciona un acuerdo</li>
+				</ol>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-8">
+					<div class="title">
+						<!-- Selecciona la propuesta más adecuada para ti -->
+						Según la propuesta que hiciste, [entidad] te ofrece las siguientes opciones:
+					</div>
+				</div>
+				<div class="col-12 mx-auto col-md-4 centerButton">
+					<!-- <button class="btn btn-outline round" (click)="openModal(debtService.debtSelect)">
+						<img class="icon" src="assets/icons/calculadora.svg" alt="">Hacer otra propuesta</button> -->
+					<button class="btn btn-outline-pink" id="agreeMore" (click)="openModal(debtService.debtSelect)">
+						<i class="fa fa-calculator" aria-hidden="true"></i>
+						<span>Hacer otra propuesta</span>
+						<!-- <i class="arrow right"></i> -->
+					</button>
+				</div>
+			</div>
+			<div class="agree-wrap">
+				<div class="agree-item mr-4 pt-4" *ngFor="let option of agree.agreements">
+					<div class="head">
+						<div class="price main">
+							<span>Pagas</span> $ {{option.payment | currency:'COP':'':'1.2-2'}}
+						</div>
+						<div class="price">
+							<span>Antes </span> <s>$ {{option.paymentBefore | currency:'COP':'':'1.2-2'}}</s>
+						</div>
+						<div class="price" *ngIf="option.saving > 0">
+							<span>Ahorro</span> $ {{option.saving | currency:'COP':'':'1.2-2'}}
+						</div>
+					</div>
+					<div class="info">
+						<div class="item d-flex" *ngIf="option.paymentInitial > 0">
+							<span class="mr-auto">Pago inicial</span> $ {{option.paymentInitial | currency:'COP':'':'1.2-2'}}
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Pago mensual</span>$ {{option.paymentMonthly | currency:'COP':'':'1.2-2'}}<small *ngIf="option.paymentInitial > 0">x{{option.totalPayments - 1}}</small><small *ngIf="option.paymentInitial == 0">x{{option.totalPayments}}</small>
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Total pagos</span> {{option.totalPayments}}
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Inicio de pago</span> {{option.paymentDate | date: 'dd MMMM yyyy'}}
+						</div>
+					</div>
+					<button class="btn-l btn-link" id="agreeMore" (click)='open(option.agreement.paymentAgreements)'>
+						<i class="fa fa-calculator" aria-hidden="true"></i>
+						<span>Ver programación de pagos</span>
+					</button>
+					<button class="btn btn-pink" id="programacionDeuda" (click)='saveOffer(option)'>
+						<span>Seleccionar acuerdo</span>
+						<i class="arrow right"></i>
+					</button>
+					<!-- <a class="link" (click)='open(option.agreement.paymentAgreements)'><img class="icon" src="assets/icons/calendario.svg" alt=""> Ver programación de pagos</a> -->
+					<!-- <button class="btn btn-secundary" (click)='saveOffer(option)'>Seleccionar acuerdo</button> -->
+				</div>
+				<img class="pj1" src="assets/icons/pj_agree1.svg" alt="">
+				<img class="pj2" src="assets/icons/pj_agree2.svg" alt="">
+				<!-- <div class="agree-item mr-4  pt-4">
+					<div class="head">
+						<div class="price main">
+							<span>Pagas</span> $2.000.000
+						</div>
+						<div class="price">
+							<span>Antes</span> $2.000.000
+						</div>
+						<div class="price">
+							<span>Ahorro</span> $2.000.000
+						</div>
+					</div>
+					<div class="info">
+						<div class="item d-flex">
+							<span class="mr-auto">Pago inicial</span> $2.000.000
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Pago mensual</span> $2.000.000 <small>x3</small>
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Total pagos</span> 3
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Inicio de pago</span> 19 JUL 2019
+						</div>
+					</div>
+					<a class="link" (click)='open()'><img class="icon" src="assets/icons/calendario.svg" alt=""> Ver programación de pagos</a>
+					<button class="btn btn-secundary">Seleccionar acuerdo</button>
+				</div>
+				<div class="agree-item  pt-4">
+					<div class="head">
+						<div class="price main">
+							<span>Pagas</span> $2.000.000
+						</div>
+						<div class="price">
+							<span>Antes</span> $2.000.000
+						</div>
+						<div class="price">
+							<span>Ahorro</span> $2.000.000
+						</div>
+					</div>
+					<div class="info">
+						<div class="item d-flex">
+							<span class="mr-auto">Pago inicial</span> $2.000.000
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Pago mensual</span> $2.000.000 <small>x3</small>
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Total pagos</span> 3
+						</div>
+						<div class="item d-flex">
+							<span class="mr-auto">Inicio de pago</span> 19 JUL 2019
+						</div>
+					</div>
+					<a class="link" (click)='open()'><img class="icon" src="assets/icons/calendario.svg" alt=""> Ver programación de pagos</a>
+					<button class="btn btn-secundary">Seleccionar acuerdo</button>
+					<img class="pj2" src="assets/icons/pj_agree2.svg" alt="">
+				</div> -->
+			</div>
+			<div class="row add-txt">
+				<div class="col-12 col-md-6">
+					<div class="row">
+						<div class="col-3 mx-auto col-md-3">
+							<img src="assets/icons/agree_pay.svg" alt="">
+						</div>
+						<div class="col-12 col-md-9">
+							<span>Fecha de pago</span>
+							<div class="txt" *ngIf="agree.agreements">
+								Debes realizar tu pago en <strong>{{agree.agreements[0].paymentDate | date: 'dd MMMM yyyy'}}</strong> o al siguiente día hábil.
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="row">
+						<div class="col-3 mx-auto col-md-3">
+							<img src="assets/icons/agree_icon.svg" alt="">
+						</div>
+						<div class="col-12  col-md-9">
+							<span>Tratamiendo de información</span>
+							<div class="txt">
+									Estas intentando ponerte al día con tu deuda. <strong>Cualquier información obtenida aquí</strong>  será utilizada para este proposito.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<app-program></app-program>
+<app-deal></app-deal>

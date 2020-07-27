@@ -1,0 +1,39 @@
+<div class="modal p-0" tabindex="-1" role="dialog" id="loading">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content-loading m-auto">
+      <div class="modal-body p-0">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+        <div class="container-fluid">
+          <div class="row text-center">
+            <!-- <div class="col-md-12 ml-auto mt-3">
+                  <object class="ico" type="image/svg+xml" data="assets/icons/wait1.svg">
+                  Your browser does not support SVG
+                  </object>
+                </div> -->
+            <div class="col-md-12 ml-auto">
+              <div id="loadingAnimation" class="animation m-auto"></div>
+            </div>
+            <div class="col-md-7 mx-auto ml-auto title">
+              {{ loadingService.titulo }}
+            </div>
+            <div class="col-md-7  mx-auto mt-3 ml-auto text">
+              {{ loadingService.texto }}
+            </div>
+            <div class="col-md-12">
+              <p class="text-center">
+                <img src="assets/images/loader.gif" alt="loading" class="m-auto">
+              </p>
+            </div>
+            <!-- <div class="col-md-12 ml-auto mt-4">
+              <object class="points" type="image/svg+xml" data="assets/icons/wait2.svg">
+                Your browser does not support SVG
+              </object>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="modal loading sign" tabindex="-1" role="dialog" id="sign">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="cerrar" title="Cerrar" (click)='closeSignature()'>x</div>
+                            <div class="modalTitle">Regulación de firma Electrónica</div>
+                            <div class="line"></div>
+                            <div class="textoRegulatorio">
+                                <span>Consideraciones</span><br /><br />
+                                1. El Código General del Proceso, en su Artículo 165 establece que «Son medios de prueba la declaración de parte, la confesión, el juramento, el testimonio de terceros, el dictamen pericial, la inspección judicial, los documentos, los indicios, los informes y cualesquiera otros medios que sean útiles para la formación del convencimiento del juez.<br /><br />
+                                2. La Ley 527 de 1999, les otorga validez plena y valor jurídico a los mensajes de datos:<br /><br />
+                                “Artículo 6. Escrito. Cuando cualquier norma requiera que la información conste por escrito, ese requisito quedará satisfecho con un mensaje de datos, si la información que éste contiene es accesible para su posterior consulta.<br /><br />
+                                Lo dispuesto en este artículo se aplicará tanto si el requisito establecido en cualquier norma constituye una obligación, como si las normas prevén consecuencias en el caso de que la información no conste por escrito.”<br /><br />
+                                3. El Decreto 2364 de 2012 en su Artículo 2 estableció que “Ninguna de las disposiciones del presente decreto será aplicada de modo que excluya, restrinja o prive de efecto jurídico cualquier método, procedimiento, dispositivo o tecnología para crear una firma electrónica que cumpla los requisitos señalados en el artículo 7 de la Ley 527 de 1999.”<br /><br />
+                                4. El Decreto 2364 de 2012, en su artículo 5 que “la firma electrónica tendrá la misma validez y efectos jurídicos que la firma, si aquella cumple con los requisitos establecidos en el artículo 3 de este decreto.”<br /><br />
+                                5. De igual manera, el Decreto 2364 de 2012 estableció lo siguiente:<br /><br />
+                                “Artículo 7. Firma electrónica pactada mediante acuerdo. Salvo prueba en contrario, se presume que los mecanismos o técnicas de identificación personal o autenticación electrónica según el caso, que acuerden utilizar las partes mediante acuerdo, cumplen los requisitos de firma electrónica.<br /><br />
+                                Parágrafo. La parte que mediante acuerdo provee los métodos de firma electrónica deberá asegurarse de que sus mecanismos son técnicamente seguros y confiables para el propósito de los mismos. A dicha parte le corresponde probar estos requisitos en caso de que sea necesario.”<br /><br /><br />
+                                <span>Aceptación</span><br /><br />
+                                En virtud de las anteriores consideraciones, el Firmante (firmante: persona que posee los datos de creación de la firma y que actúa en nombre propio o por cuenta de la persona a la que representa.) acepta expresamente lo siguiente:<br /><br />
+                                1. Las Partes acuerdan que los mecanismos de firma utilizados en Midata aldía cumplen con los requisitos de la firma electrónica, esto es, que (i) Los datos de creación le corresponden exclusivamente al firmante y ii)Es posible detectar cualquier alteración no autorizada del mensaje de datos, hecha después del momento de la firma.<br /><br />
+                                Al utilizar los servicios en línea, usted acepta que un facsímil electrónico de su firma o acuerdo electrónico conlleva el peso legal completo de una firma escrita.<br /><br />
+                                2. Copias en papel. No le enviaremos una copia en papel de ninguna comunicación, a menos que lo exija la ley, o que consideremos apropiado realizarlo. Puede obtener una copia en papel de una comunicación electrónica imprimiéndola usted mismo.<br /><br />
+                                3. Comunicaciones por escrito. Todas las comunicaciones en formato electrónico o en papel de nosotros hacia usted serán consideradas "por escrito". Debe imprimir o descargar para sus registros una copia de este aviso y cualquier otra comunicación que sea importante para usted.<br /><br />
+                                4. Requisitos de Hardware y software. Para poder acceder, ver y conservar las Comunicaciones electrónicas que ponemos a su disposición, su computadora o dispositivo móvil debe tener a su disposición mínimo:<br /><br />
+                                a. Conexión a Internet.<br />
+                                b. Un navegador de Internet que admita el cifrado de 128 bits;<br />
+                                c. Suficiente capacidad de almacenamiento en el disco duro de su computadora u otra unidad de almacenamiento de datos.<br />
+                                d. Una cuenta de correo electrónico con un proveedor de servicios de Internet y software de correo electrónico para poder participar en nuestros programas de comunicación electrónica.<br />
+                                e. Una computadora o dispositivo móvil capaz de recibir, acceder, mostrar e imprimir o almacenar las comunicaciones que recibirá de nosotros en formato electrónico a través de un correo electrónico con formato de texto plano o mediante el acceso a nuestro sitio web.<br />
+                                f. Lector de documentos PDF.
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="row contentBotones">
+                        <div class="col-md-6">
+                            <div class="botones" (click)='closeSignature()'><i class="fa fa-angle-left backPnt" aria-hidden="true"></i> Volver </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="botones" (click)='acceptSignature()'>Estoy de acuerdo <i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

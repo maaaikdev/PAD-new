@@ -1,0 +1,46 @@
+<div class="modal fade modal" id="modal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+	[ngClass]="{'modal-error': content.typeModal === 'modal-error', 'modal-confirm': content.typeModal === 'modal-confirm'}">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content p-2">
+			<div class="modal-body">
+				<div class="row">
+					<div class="d-block d-sm-none col-6" *ngIf="content.imgLateral">
+						<img src="{{content.enlace}}" class="icon" alt="Validacion exitosa">
+					</div>
+					<div class="col-12 col-md-6 my-2 p-5 text-center">
+						<div class="title my-2 mb-4">
+							{{ content.titulo }}
+						</div>
+						<div class="txt">
+							<p [innerHTML]="content.textoHTML">
+							</p>
+						</div>
+						<br>
+						<!-- <button 
+              *ngIf="(content.typeModal === 'modal-error') && (content.textBoton)"
+              class=" btn-lg btn text-center d-block m-auto btn-error mt-5" 
+              (click)=""
+              data-dismiss="modal">{{ content.textBoton }} <i class="arrow right"></i></button> -->
+
+						<button *ngIf="(content.typeModal === 'modal-confirm') && (content.textBoton)"
+							class=" btn-lg btn text-center d-block m-auto btn-primary mt-5"
+							data-dismiss="modal">{{ content.textBoton }} <i class="arrow right"></i></button>
+
+						<button *ngIf="(content.typeModal === 'modal-error') && (content.textBoton) && (!content.enlaceBoton)"
+							class="btn-lg btn text-center d-block m-auto btn-error mt-5" data-dismiss="modal">{{ content.textBoton }}
+							<i class="arrow right"></i></button>
+
+						<a *ngIf="(content.typeModal === 'modal-error') && (content.enlaceBoton)" href="{{content.enlaceBoton}}"
+							class="btn-lg btn text-center d-block m-auto btn-error mt-5">
+							{{ content.textBoton }}
+							<i class="arrow right"></i>
+						</a>
+					</div>
+					<div class="d-none d-xs-block  col-md-6 p-5" *ngIf="content.imgLateral">
+						<img src="{{content.enlace}}" class="icon" alt="Validacion exitosa">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

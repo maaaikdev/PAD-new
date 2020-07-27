@@ -1,0 +1,40 @@
+.modal-header {
+  border: none;
+  padding: 5px 20px;
+  .close {
+    color: $main-color;
+    font-weight: $light;
+    font-size: 2.5rem;
+    // margin-right: 13px;
+  }
+}
+.modal-content {
+  padding: 20px;
+  border-radius: 16px;
+  // text-align: center;
+  .field-title {
+    font-weight: $bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    @media (min-width: 768px) {
+      color: $bg-dark;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+  svg {
+    fill: #807f7f;
+    opacity: 0.5;
+    font-weight: 300;
+    margin: 5px auto;
+    display: block;
+    width: 20%;
+    padding-bottom: 15px;
+  }
+}
+.modal-error {
+  .title {
+    color: $error;
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,87 @@
+<div class="modal fade modal-deal" id="modal-deal" tabindex="-1" role="dialog" aria-hidden="true"
+	data-backdrop="static">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="title my-0">
+							<h3>Ponte al día con {{dealModal.debCompany}}</h3>
+						</div>
+						<div class="txt">
+							<p>Aquí podrás negociar tu deuda en mora por:</p>
+							<p class="price">$ {{dealModal.debBalance | currency:'COP':'':'1.2-2' }}</p>
+							<p>Haz una propuesta de pago en línea:</p>
+						</div>
+						<div class="separate"></div>
+						<fieldset>
+							<form (ngSubmit)="propuesta(datos)" #datos="ngForm" autocomplete="off">
+								<!-- <div class="alert alert-danger" *ngIf="errorMessage">
+								{{ errorMessage }}
+							</div> -->
+								<div class="row">
+									<div class="col-12">
+										<div class="form-group">
+											<label for="month" class="bmd-label-floating">Capacidad de pago
+												mensual</label>
+											<input currencyMask type="text" class="form-control text-left" id="month" [(ngModel)]="monthly" #month="ngModel"
+												required="required" name="pago" autocomplete="off">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group">
+											<label for="documento" class="bmd-label-floating">Cantidad de pagos</label>
+											<select class="form-control custom-select" id="pay" name="cuota" [(ngModel)]="payment"
+												#pay="ngModel" autocomplete="off" required="required">
+												<option *ngFor="let mes of dealModal.selectMonth" [value]="mes">
+													{{mes}} 
+													<span *ngIf="mes === '1'">mes</span> 
+													<span *ngIf="mes !== '1'">meses</span>
+												</option>
+											</select>
+											<i class="arrow down"></i>
+											<small>La entidad permite un plazo de hasta {{dealModal.selectMonth?.length}} meses.</small>
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="form-group">
+											<!-- <label for="dat" class="bmd-label-floating">Fecha de pago</label>
+											<input type="text" class="form-control" id="dat" [(ngModel)]="date"
+												#dat="ngModel" required="required" name="dat"> -->
+											<label for="dat" class="bmd-label-floating">Fecha de pago</label>
+											<input type="text" class="form-control" placeholder="dd - mm - yyyy" id="dat" name="fecha" [(ngModel)]="date" readonly
+												ngbDatepicker #d="ngbDatepicker" autocomplete="off" required="required"  [placement]="placement" [positionTarget]="buttonCalendar">
+											<button #buttonCalendar class="btn calendar" (click)="d.toggle()" type="button">
+												<i class="fa fa-calendar"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+								<button [attr.disabled]="(datos.valid && !dealModal.loading) ? null : 'disabled'" [ngClass]="{'disabled': !datos.valid || dealModal.loading }"
+									type="submit" class="btn btn-lg d-block mx-auto btn-secundary">
+									Hacer propuesta 
+									<i *ngIf="!dealModal.loading" class="arrow right"></i>
+									<i *ngIf="dealModal.loading" class="fa fa-spinner fa-spin positionSpinner"></i>
+								</button>
+								<!-- <button class="btn-make btn-orange" type="submit"  id="makeOffer" [attr.disabled]="(datos.valid && !dealModal.loading) ? null : 'disabled'" [ngClass]="{'disabled': !datos.valid || dealModal.loading }">
+									<span>Hacer propuesta</span>
+									<i *ngIf="!dealModal.loading" class="arrow right"></i>
+									<i *ngIf="dealModal.loading" class="fa fa-spinner fa-spin positionSpinner"></i>
+								</button> -->
+							</form>
+						</fieldset>
+					</div>
+					<div class="col-md-6 m-auto text-right d-none d-sm-block">
+						<!-- <img [src]="imgSrc" class="icon" [alt]="title"> -->
+						<img src="assets/icons/acuerdo_pop.svg" alt="Ponte el día" class="img-modal">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

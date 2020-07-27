@@ -1,0 +1,139 @@
+{
+	"menu": {
+		"txtreg" : "Registrarse",
+		"txtlog" : "Iniciar Sesión",
+		"txtcomo" : "¿Cómo funciona?",
+		"txtaliados": "Aliados",
+		"txthelp": "Ayuda"
+	},
+	"simulador":{
+		"titulo1": "Tenemos las mejores ofertas de crédito para ti",
+		"txtinfo": "Estás a unos minutos de conocerlas. <br> <strong>Comienza aquí</strong>"
+	},
+	"instrucciones":{
+		"titulo": "¿Cómo funciona Ponte al día?",
+		"paso1titulo": "¿Qué necesitas?",
+		"paso1info" : "Cuéntanos cuánto dinero requieres, nosotros buscaremos las mejores ofertas según tu realidad financiera.",
+		"paso2titulo": "¿Cuál escoges?",
+		"paso2info" : "Escoge entre las ofertas de crédito la que más te convenga de forma fácil, rápida y segura.",
+		"paso3titulo": "¿Qué obtienes?",
+		"paso3info" : "Un asesor de la entidad se pondrá en contacto contigo para finalizar tu solicitud de crédito pre-aprobada."
+	},
+	"aliados": {
+		"titulo": "Aliados Ponte al día"
+	},
+	"faq":{
+		"titulo": "Preguntas frecuentes",
+		"linkfaq": "http://preguntas.midatacredito.com/",
+		"txt1": "¿Cómo saber si estoy reportado en DataCrédito?",
+		"txt2": "¿Cómo me protege Midatacredito contra el fraude por Suplantación de Identidad?",
+		"txt3": "Soy víctima de fraude por suplantación de identidad ¿Qué debo hacer? ",
+		"txt4": "¿De qué forma puedo comprar un plan de Midatacredito? ",
+		"txt5": "¿Qué es un score de crédito? ",
+		"txt6": "¿Cómo se calcula mi score?"
+	},
+	"midatacredito":{
+		"titulo": "Conoce tu historia de crédito totalmente GRATIS.",
+		"texto": "Consulta tus reportes positivos y negativos de las cuentas que tengas con las entidades que notifican información financiera a centrales de riesgo.",
+		"info": "¿Necesitas ayuda? Comunicate con nuestra línea de atención: strong>423 2222</strong> en Bogotá - <strong>018000 947 030</strong> Línea Nacional."
+	},
+	"footer":{
+		"seccion1":{
+			"titulo": "Ponte al día",
+			"textos":{
+				"txt1":"¿Qué es mi Ponte al día?",
+				"txt2":"Política de Privacidad",
+				"txt3":"Términos y condiciones",
+				"txt4":"Cláusulas póliza de seguro"
+			},
+			"links":{
+				"url1":"¿Qué es mi Ponte al día?",
+				"url2":"https://www.midatacredito.com/#!/privacidadsitio",
+				"url3":"https://www.midatacredito.com/#!/terminoscondiciones",
+				"url4":"https://contenido.midatacredito.com/recursos/archivos/clausula_poliza_premium.pdf"
+			}
+		},
+		"seccion2":{
+			"titulo": "¿Tienes dudas?",
+			"textos":{
+				"txt1":"Preguntas frecuentes",
+				"txt2":"Contáctenos",
+				"txt3":"SIC",
+				"txt4":"Canales gratuitos de consulta"
+			},
+			"links":{
+				"url1":"http://preguntas.midatacredito.com/",
+				"url2":"https://www.midatacredito.com/jsp/contacto/MiDCContactenos.jsp",
+				"url3":"http://www.sic.gov.co/",
+				"url4":"https://www.datacredito.com.co/"
+			}
+		},
+		"seccion3":{
+			"titulo": "Otras soluciones",
+			"textos":{
+				"txt1":"Historial de crédito",
+				"txt2":"Buscacrédito",
+				"txt3":"",
+				"txt4":""
+			},
+			"links":{
+				"url1":"",
+				"url2":"",
+				"url3":"",
+				"url4":""
+			}
+		},
+		"marca":{
+			"texto":"2019 Experian Information Solutions, Inc. Derechos reservados."
+		}
+	},
+	"informacion":{
+		"personal":{
+			"titulo":"información personal",
+			"label":{
+				"nombre": "Nombres",
+				"apellido": "Primer apellido",
+				"tipo": "Tipo",
+				"documento": "No. de documento",
+				"email": "Email",
+				"telefono": "Télefono"
+			},
+			"placeholder": {
+				"nombre": "Ej. Pedro",
+				"apellido": "Ej. Peréz",
+				"documento": "Ej. 1.234.567.8**",
+				"email": "Ej. pedro.pe@mail.com",
+				"telefono": "Ej. 360 456 78 90"
+			}
+		},
+		"adicional":{
+			"titulo":"información adicional",
+			"label":{
+				"departamento": "Departamento",
+				"ciudad": "Ciudad",
+				"direccion": "Direccion",
+				"ocupacion": "Ocupación",
+				"ingresos": "Ingresos mensuales"
+			},
+			"placeholder": {
+				"direccion": "Ej. Calle 1 No. 2-3",
+				"ingresos": "Ej: $1.500.000"
+			}
+		},
+		"buscar":{
+			"titulo":"información adicional"
+		},
+		"terminos":{
+			"link1":"",
+			"link2":""
+		}
+	},
+	"listing": {
+		"titulo": "<strong>Crédito de libre inversión</strong> disponibles para ti",
+		"oferta":{
+			"producto":"Crédito Libre Inversión",
+			"info":"Pago total aproximado",
+			"cta": "Ver oferta"
+		}
+	}
+}

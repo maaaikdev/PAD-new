@@ -1,0 +1,74 @@
+@import "../../../styles.scss";
+.modal-confirm {
+  font-family: $roboto;
+  .modal-content {
+    padding: 10px;
+    border-radius: 20px;
+    height: 450px;
+    // background-image: url(/assets/images/backgrounds/bkground1.svg);
+    background-size: 120%;
+    background-position: center;
+    @media (min-width: 768px) {
+      background-image: url(/assets/images/backgrounds/pop_bad.svg);
+    }
+  }
+  .title {
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  .txt {
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 17px;
+      color: $mid-gray;
+    }
+  }
+  .icon {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+.modal-error {
+  font-family: $roboto;
+  .modal-content {
+    padding: 10px;
+    // background-image: url(/assets/images/backgrounds/bkground1.svg);
+    border-radius: 20px;
+    height: 450px;
+    background-size: 120%;
+    background-position: center;
+    @media (min-width: 768px) {
+      background-image: url(/assets/images/backgrounds/pop_bad.svg);
+    }
+  }
+  .title {
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    color: $main-color;
+  }
+  .txt {
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 17px;
+      color: $mid-gray;
+    }
+  }
+  .icon {
+    width: 100%;
+    max-width: 300px;
+  }
+}

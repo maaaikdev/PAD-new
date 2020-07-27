@@ -1,0 +1,57 @@
+server {
+	listen 8080;
+	server_name _;
+	gzip on;
+    gzip_types      text/plain application/xml text/css application/javascript application/json image/svg+xml image/png image/jpeg;
+    gzip_proxied    no-cache no-store private expired auth;
+    gzip_min_length 1000;
+    gunzip on;
+	root /var/www/dist/ac-cthupon-ui;
+	
+	## All static files will be served directly.
+	location ~* ^.+\.(?:css|cur|js|jpe?g|gif|htc|ico|png|html|xml|otf|ttf|eot|woff|woff2|svg)$ {
+		access_log off;
+		expires 1d;
+		add_header Cache-Control "public, no-transform, must-revalidate, max-age=1314000, s-maxage=1314000";
+
+		## No need to bleed constant updates. Send the all shebang in one
+		## fell swoop.
+		tcp_nodelay off;
+
+		## Set the OS file cache.
+		open_file_cache max=3000 inactive=120s;
+		open_file_cache_valid 45s;
+		open_file_cache_min_uses 2;
+		open_file_cache_errors off;
+	}
+
+	location / {
+    	gzip_static on;
+    	try_files $uri$args $uri$args/ /index.html;
+	}
+
+	## Redireccion a url's internas
+
+	location /authn-ws/ {
+        proxy_pass http://ac-authn-ws.qa-co-sla-datacash.svc.cluster.local:8080/; 
+		proxy_read_timeout 180;
+	}
+    location /cmpnymnger-ws/ {
+        proxy_pass http://ac-cmpnymnger-ws.qa-co-sla-datacash.svc.cluster.local:8080/;
+		proxy_read_timeout 180;
+	}
+    location /debtsmanager-ws/ {
+        proxy_pass http://ac-debtsmanager-ws.qa-co-sla-datacash.svc.cluster.local:8080/;
+		proxy_read_timeout 180;
+	}	
+    location /ngttion-ws/ {
+        proxy_pass http://ac-ngttion-ws.qa-co-sla-datacash.svc.cluster.local:8080/;
+		proxy_read_timeout 180;
+	}
+		
+	error_page   500 502 503 504  /50x.html;
+
+	location = /50x.html {
+        root   /etc/nginx/html;
+	}
+}

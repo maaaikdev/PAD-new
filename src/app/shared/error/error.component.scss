@@ -1,0 +1,57 @@
+@import "../../../styles.scss";
+.error{
+	.title{
+		font-family: $din;
+		font-size: 20px;
+		color: $txt-gray;
+		margin-top:10px;
+		margin-bottom: 15px;
+		text-align: center;
+		@media (min-width: 768px){
+			font-size: 45px;
+			font-weight: $light;
+			text-align: left;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+	}
+	strong{
+		font-size: 16px;
+		@media (min-width: 768px){
+			font-size: 22px;
+		}
+	}	
+}
+.btn {
+            width: 100%;
+            height: 52px;
+            background-color: $terciary-color;
+            border-radius: 8px;
+            text-align: center;
+            margin: 24px auto;
+            @media(max-width:767px){
+              height: 46px;
+              margin: 24px auto 8px;
+            }
+            &.btn-orange{
+              	vertical-align: middle;
+			span {
+				font-family: $roboto;
+				font-size: 18px;
+				color: $white;
+				display: inline-block;
+				margin-right: 10px;
+				@media(max-width:767px){
+					font-size: 16px;
+				}
+			}
+			i {            
+				width: 10px;
+				height: 10px;
+				color: $white;
+				display: inline-block;
+				border: solid $white;
+				border-width: 0 2px 2px 0;
+			}
+            }
+      }

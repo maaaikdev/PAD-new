@@ -1,0 +1,22 @@
+<div class="modal loading understood" tabindex="-1" role="dialog" id="understood">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="cerrar" title="Cerrar" (click)='closeUnder()'>x</div>
+                    <div class="row">
+                        <div class="col-12 col-md-7 order-1 order-md-0">
+                            <div class="principal" *ngIf="debtService.debtSelect">Ante cualquier duda, puedes <span>ponerte en contacto</span> mediante los canales de atención del {{debtService.debtSelect.nameCompany}}.</div>
+                            <div class="principal" *ngIf="select.state">Ante cualquier duda, puedes <span>ponerte en contacto</span> mediante los canales de atención del {{broker.nameCompanyAccept}}.</div>
+                            <div class="centralText">¡Tú acuerdo de pago ha sido confirmado por la entidad!</div>
+                            <div class="entendido" (click)='closeUnder()'>¡Entendido! <i class="fa fa-angle-right" aria-hidden="true"></i></div> 
+                        </div>
+                        <div class="col-12 col-md-5 order-0 order-md-1">
+                            <img src="assets/images/back_understood.svg" class="imgConfirm" alt="" title="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

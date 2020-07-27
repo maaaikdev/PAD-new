@@ -1,0 +1,96 @@
+@import "../../../../styles.scss";
+
+#understood {
+    .modal-body{
+        @media(max-width:767px){
+            padding: 40px 22px;
+        }
+    }
+    .modal-content {
+        border-radius: 20px;
+        padding: 0;
+        height: auto;
+        max-height: 599px;
+        background-image: url(/assets/images/backgrounds/fondo_purple.svg);
+        background-position: center right;
+        background-repeat: no-repeat;
+        height: 479px;
+        @media(max-width:767px){
+            background-image: none;
+            max-height: 100%;
+            height: auto;
+        }
+
+        .cerrar {
+            position: absolute;
+            color: $white;
+            font-size: 40px;
+            right: 21px;
+            cursor: pointer;
+            line-height: 24px;
+            top: 14px;
+            z-index: 9;  
+        }
+
+        .principal {
+            font: $regular 18px/24px $roboto;
+            color: $txt-gray;
+            padding-top: 57px;
+            margin-left: 14px;
+            @media(max-width:767px){
+                padding-top: 30px;
+                margin-left: 14px;
+                text-align: center;
+            }
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .centralText {
+            text-align: center;
+            font: $light 28px/35px $din;
+            letter-spacing: 0;
+            color: $main-color;
+            margin: 29px 76px 73px;
+            @media(max-width:767px){
+                margin: 19px 0px 22px;
+            }
+        }
+
+        .entendido {
+            width: 260px;
+            height: 50px;
+            background: $main-color 0% 0% no-repeat padding-box;
+            border-radius: 5px;
+            margin: 0 auto;
+            color: $white;
+            text-align: center;
+            font: $regular 18px/18px $roboto;
+            letter-spacing: 0.58px;
+            padding-top: 16px;
+            position: relative;
+            cursor: pointer;
+            @media(max-width:767px){
+                width: 100%;
+            }
+            i {
+                position: absolute;
+                right: 30px;
+                font-size: 25px;
+                top: 10px;
+            }
+        }
+
+        .imgConfirm {
+            margin-top: 79px;
+            @media(max-width:767px){
+                margin-top: 0;
+                width: 54%;
+                margin: 0 auto;
+                display: block;
+                padding-top: 10px;
+            }
+        }
+    }
+}

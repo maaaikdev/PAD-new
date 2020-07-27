@@ -1,0 +1,72 @@
+<div class="container-fluid footer">
+    <div class="container">
+      <div class="row logo">
+        <div class="col-12 col-sm-4 pt-1 pr-5">
+          <img class="icon" src="assets/icons/logo-s.svg" alt="Ponte al día">
+        </div>
+        <div class="mapsite pl-2 col-12 col-sm-8">
+          <ul class="row list-group list-group-flush d-sm-none">
+            <li class="list-group-item">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#midatacash" aria-expanded="false" aria-controls="midatacash">
+                    {{sesion.datos.footer?.seccion1.titulo}}
+                </button>
+                <div id="midatacash" class="collapse">
+                  <!-- <a href="" target="_blank" class="mapsite_link">Qué es Ponte al día</a> -->
+                  <a href={{sesion.datos.footer?.seccion1.links.url2}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion1.textos.txt2}}</h2></a>
+                  <a href={{sesion.datos.footer?.seccion1.links.url3}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion1.textos.txt3}}</h2></a>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <button class="btn btn-link" data-toggle="collapse" 
+                data-target="#faqfo" aria-expanded="false" 
+                aria-controls="faqfo">
+                {{sesion.datos.footer?.seccion2.titulo}}
+                </button>
+                <div id="faqfo" class="collapse">
+                  <a href={{sesion.datos.footer?.seccion2.links.url1}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt1}}</h2></a>
+                  <a href={{sesion.datos.footer?.seccion2.links.url2}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt2}}</h2></a>
+                  <a href={{sesion.datos.footer?.seccion2.links.url4}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt4}}</h2></a>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#somos" aria-expanded="false" aria-controls="somos">
+                    Otras soluciones
+                </button>
+                <div id="somos" class="collapse">
+                  <a href="" target="_blank" class="mapsite_link"><h2>Historial de crédito</h2></a>
+                  <a href="" target="_blank" class="mapsite_link"><h2>Mi data al día</h2></a>
+                </div>
+            </li>
+          </ul>
+          <div class="footer-full d-none d-sm-block">
+            <div class="row justify-content-around ">
+              <div class="col-sm-4">
+                <div class="title">{{sesion.datos.footer?.seccion1.titulo}}</div>
+                <!-- <a href="" target="_blank" class="mapsite_link">Qué es buscadrédito</a> -->
+                <a href={{sesion.datos.footer?.seccion1.links.url2}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion1.textos.txt2}}</h2></a>
+                <a href={{sesion.datos.footer?.seccion1.links.url3}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion1.textos.txt3}}</h2></a>
+              </div>
+              <div class="col-sm-4">
+                <div class="title">{{sesion.datos.footer?.seccion2.titulo}}</div>
+                <a href={{sesion.datos.footer?.seccion2.links.url1}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt1}}</h2></a>
+                <a href={{sesion.datos.footer?.seccion2.links.url2}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt2}}</h2></a>
+                <a href={{sesion.datos.footer?.seccion2.links.url4}} target="_blank" class="mapsite_link"><h2>{{sesion.datos.footer?.seccion2.textos.txt4}}</h2></a>
+              </div>
+              <div class="col-sm-4">
+                <div class="title">Otras soluciones</div>
+                <a href="" target="_blank" class="mapsite_link"><h2>Historial de crédito</h2></a>
+                <a href="" target="_blank" class="mapsite_link"><h2>Mi data al día</h2></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="brand pt-2">
+    <img class="icon" src="assets/icons/logo-datacredito.svg" alt="">
+    <p>
+      Cra 7 # 76 - 35 • ©{{year}} Experian Information Solutions, Inc. Derechos reservados
+    </p>
+  </div>

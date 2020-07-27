@@ -1,0 +1,407 @@
+<section class="debt-main">
+	<div class="container-fluid">
+	<!-- <div class="row">
+			<div class="col-12 p-0">
+				<div class="title">
+					<div class="row">
+						<div class="col-12 col-md-12 order-0">
+							Administrador de deudas
+							<span *ngIf="debtsService.customerDebts?.responseObject.debts.length === 0" class="d-md-inline-block d-none">No tienes deudas por negociar</span>
+							<span *ngIf="debtsService.customerDebts?.responseObject.debts.length > 0" class="d-md-inline-block d-none">Tienes {{debtsService.customerDebts?.responseObject.debts.length}} deuda(s) por negociar</span>
+						</div>
+						<div class="col-12 col-md-12 d-block d-md-none order-2">
+							<span *ngIf="debtsService.customerDebts?.responseObject.debts.length === 0">No tienes deudas por negociar</span>
+							<span *ngIf="debtsService.customerDebts?.responseObject.debts.length > 0">Tienes {{debtsService.customerDebts?.responseObject.debts.length}} deuda(s) por negociar</span>
+						</div>
+						<div class="col-12 order-1">
+							<small>En Ponte al día podrás negociar las deudas que tengas pendientes con nuestras entidades aliadas</small>
+						</div>
+						<div class="col-12 order-3 d-block d-sm-none">
+							<a class="btn btn-filter mx-auto" data-toggle="modal" data-target="#filters">
+								<i class="fa fa-filter mr-2" aria-hidden="true"></i> Filtrar 
+							</a>
+						</div>
+						<div class="col-12 order-3 d-block d-sm-none text-left">
+							<div class="btn-company"></div>
+							<div class="btn-statusAll" ></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- <div class="col-12 order-3 d-block d-sm-none text-left">
+							<div class="btn-company"></div>
+							<div class="btn-statusAll" ></div>
+						</div> -->
+		<div class="row" *ngIf="debtsService.filteredItems">			
+			<div class="col-12 col-md-3 col-xxl-2 nav-main order-1 order-md-0">				
+				<!-- <app-dfilters></app-dfilters> -->
+				<img src="assets/images/all/Logo_PAD_w.svg"  alt="Logo Datacrédito Ponte al Día" class="logo-main"/>
+				<div class="no-debts" *ngIf="noDebtsFreemium">
+					<h2>Conocer tu historia de crédito puede ayudar a mejorar tu vida financiera.</h2>
+					<p>Te ayudamos a llevar a otro nivel tu perfil crediticio. Conoce tu historia de crédito Gratis.</p>
+					<img src="assets/images/all/go_freemium.svg" alt="Fremium Mi Datacrédito" class="img-secondary"/>
+					<button class="btn btn-outline-white" id="midatacreditoGo">
+						<span>Ir a Midatacrédito</span>
+						<i class="arrow right"></i>
+					</button>
+				</div>
+				<div class="debts-today" *ngIf="debtsToday">
+					<button class="btn-main" (click)="obligaciones()">
+						<div class="icon-main">
+							<img src="assets/images/all/obligaciones_negociables_icon.svg" alt="Obligaciones Negociables"/>
+						</div>
+						<div class="btn-txt">
+							<h3>Obligaciones Negociables</h3>
+						</div>
+						<div class="counts-debts">2</div>
+					</button>
+					<button class="btn-main" (click)="reportes()">
+						<div class="icon-main">
+							<img src="assets/images/all/reportes_negociables_icon.svg" alt="Obligaciones Negociables"/>
+						</div>
+						<div class="btn-txt">
+							<h3>Reportes Negociables</h3>
+						</div>
+						<div class="counts-debts">2</div>
+					</button>
+					<button class="btn-main" (click)="oReportes()">
+						<div class="icon-main">
+							<img src="assets/images/all/otros_reportes_icon.svg" alt="Otros Reportes"/>
+						</div>
+						<div class="btn-txt">
+							<h3>Otras Reportes</h3>
+						</div>
+						<div class="counts-debts">2</div>
+					</button>
+				</div>
+			</div>
+			<div class="col-12 col-md-9 col-xxl-10 debts-all order-0 order-md-1">
+				<!-- No tienes deudas -->
+				<div class="debt-container" *ngIf="alertNoDebts">
+					<div class="no-debts-all">
+						<div class="alert-no-debts">
+							<div class="img-no-debts">
+								<img src="assets/images/all/no_debt.svg" alt="No tienes deudas" class="d-none d-md-block"/>
+								<img src="assets/images/all/ok3.svg" alt="No tienes deudas" class="d-block d-md-none"/>
+							</div>
+							<div class="txt-no-debts">
+								<h3>No tienes deudas por negociar con nuestras entidades aliadas.</h3>
+							</div>
+						</div>
+						<h3>Con base en tu perfil de crédito, tenemos esta oferta de crédito recomendada para ti.</h3>
+						<div class="line-green"></div>
+						<p>Las siguientes ofertas son de compañias externas a Midatacrédito y están basadas en tu puntaje de crédito. Estas pueden cambiar más adelante, cuando tu puntaje mejore.</p>
+						<div class="box-buscacredito">
+							<div class="row">
+								<div class="col-4 col-md-2 align-self-center order-1 order-md-0">
+									<img src="assets/images/all/Lineru.svg" alt="Lineru" />
+								</div>
+								<div class="col-12 col-md-4 align-self-center order-0 order-md-1">
+									<h6>ENTIDAD</h6>
+									<h4>Lineru</h4>
+									<p>Crédito de Libre Inversión</p>
+								</div>
+								<div class="col-8 col-md-3 align-self-center order-2 order-md-2">
+									<h6>MONTO</h6>
+									<h5>$ 100.000</h5>
+									<h6>PAGO MENSUAL APROX.</h6>
+									<h5>$ 134.480 <span>x 1 mes</span></h5>
+								</div>
+								<div class="col-12 col-md-3 align-self-center order-3 order-md-3">
+									<button class="btn btn-orange" id="midatacreditoOffer">
+										<span>Ver oferta</span>
+										<i class="arrow right"></i>
+									</button>
+								</div>
+								<div class="col-12 align-self-center order-4 order-md-4">
+									<div class="note-buscacredito">
+										<div class="img-buscacredito">
+											<img src="assets/images/all/ok.svg" alt="Nota"/>
+										</div>
+										<div class="txt-buscacredito">
+											<p><span>LINERU</span> es un aliado de Midatacrédito, que te ofrece la posibilidad de adquirir créditos online para lo que quieras.</p>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>					
+				</div>
+				<!-- No tienes deudas -->
+				<!-- Alert Deudas-->
+				<div class="alert-debts" *ngIf="alertDebts">
+					<div class="img-alert">
+						<img src="assets/images/all/Pill.svg" alt="Alerta Ponte al Día"/>
+					</div>
+					<div class="alert-txt">
+						<h4>Negociar tu deuda con nuestros aliados es GRATIS.</h4>
+						<p>En menos de tres minutos, haz un acuerdo de pago con ellos y accede a descuentos en la totalidad del pago de tu deuda.</p>
+					</div>
+				</div>
+				<!-- Alert Deudas-->				
+				<!-- Obligaciones negociables -->
+				<div class="debt-container" *ngIf="obligacionesNegociables">
+					<div class="intro-debts">
+						<div class="img-intro">
+							<img src="assets/images/all/oblicaciones_negociables.svg" alt="Obligaciones Negociables"/>
+						</div>
+						<div class="text-intro">
+							<h3>Tienes <span>3 obligaciones negociables</span> en tu historia de crédito.</h3>
+							<p><span>En Ponte al día ahora puedes negociar </span>tus obligaciones financieras adquiridas con nuestras entidades aliadas.</p>
+						</div>
+					</div>
+					<div class="bg-filters">
+						<!-- <a class="btn btn-filter mx-auto" data-toggle="modal" data-target="#filters">
+							<i class="fa fa-filter mr-2" aria-hidden="true"></i> Filtrar 
+						</a> -->
+						<button class="btn btn-outline-pink" id="filters" data-toggle="modal" data-target="#filters-modal">
+							<i class="fa fa-filter" aria-hidden="true"></i>
+							<span>Filtros (3)</span>
+							<!-- <i class="arrow right"></i> -->
+						</button>
+					</div>
+					<div class="debt-wrap">
+						<div class="row head-tb">
+							<div class="col-3 align-self-center">Entidad/Estado 1</div>
+							<div class="col-3 align-self-center">Producto</div>
+							<div class="col-2 align-self-center">Tiempo y saldo <br>en mora</div>
+							<div class="col-2 align-self-center">Actualización</div>
+							<div class="col-2 align-self-center"></div>
+						</div>
+						<div class="row debts" *ngFor="let item of debtsService.filteredItems">
+							<div class="col-12 col-md-3 debt-logo align-self-center">
+								<img src="https://images-s3-ecs-sp-latam.s3.amazonaws.com/catchupon/aliados/{{item.nitCompany}}.png" class="logo"
+									alt="Logo aliado"
+									onerror="this.onerror=null; this.remove();">
+								<div class="info">
+									<div class="entity">{{item.nameCompany}}</div>
+									<div class="state debt" [ngClass]="{
+									'ok': item.accountStatuts==='AL DIA',
+									'deb': item.accountStatuts==='EN MORA',
+									'neg': item.accountStatuts==='EN NEGOCIACION',
+									'acuerdo': item.accountStatuts==='CON ACUERDO'
+								}">
+										{{item.accountStatuts}}</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-3 debt-prod align-self-center">
+								<span class="title-mob-w100">{{item.nameProduct}}</span>
+								<span class="currencyM-w-100">CTA No. **** **** {{item.numberAccount}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center cell-50" *ngIf="item.accountStatuts==='EN NEGOCIACION'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center cell-50" *ngIf="item.accountStatuts==='CON ACUERDO'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center cell-50" *ngIf="item.accountStatuts==='AL DIA'">
+								<span class="title-mob">Saldo en mora </span>
+								<span>AL DIA</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center cell-50" *ngIf="item.accountStatuts==='EN MORA'">
+								<div class="txt-table">
+									<span class="title-mob">Tiempo en mora </span>
+									<span class="currencyM">{{item.delinquencyInDays}} días</span>
+								</div>
+								<div class="txt-table">
+									<span class="title-mob">Saldo en mora </span>
+									<span class="currencyM">$ {{item.balance | currency:'COP':'':'1.2-2' }}</span>
+								</div>								
+							</div>
+							<div class="col-12 col-md-2 debt-date align-self-center cell-50">
+								<span class="title-mob">Actualización </span>
+								<span class="currencyM">{{item.dateDebt | date: 'dd MMMM yyyy' }}</span>
+							</div>
+							<div class="col-12 col-md-2 align-self-center" *ngIf="item.accountStatuts == 'EN MORA'">
+								<!-- <a (click)="openDeal(item)" class="btn btn-secundary mx-auto">Ponte al día <i class="arrow right"></i></a> -->
+								<button class="btn btn-outline-pink" id="negociarDeuda" (click)="openDeal(item)">
+									<span>Negociar</span>
+									<i class="arrow right"></i>
+								</button>
+							</div>
+							<div class="col-6 col-md-2 align-self-center" *ngIf="item.accountStatuts != 'EN MORA'">
+								<!-- <a (click)='verEstado(item.de, item.nitCompany, item.numberAccount)' class="btn btn-outline mx-auto">Ver estado <i class="arrow right"></i></a> -->
+								<button class="btn btn-outline-pink" id="verEstado" (click)='verEstado(item.de, item.nitCompany, item.numberAccount)'>
+									<span>Ver Estado</span>
+									<i class="arrow right"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>				
+				<!-- Obligaciones negociables -->
+				<!-- Reportes negociables -->
+				<div class="debt-container" *ngIf="reportesNegociables">
+					<div class="intro-debts">
+						<div class="img-intro">
+							<img src="assets/images/all/reportes_negociables.svg" alt="Obligaciones Negociables"/>
+						</div>
+						<div class="text-intro">
+							<h3>Puedes negociar <span>3 reportes negativos</span> con entidades aliadas.</h3>
+							<p><span>En Ponte al día podrás negociar las deudas con reportes negativos que tengas con</span> nuestras entidades aliadas.</p>
+						</div>
+					</div>
+					<div class="debt-wrap">
+						<div class="row head-tb">
+							<div class="col-3 align-self-center">Entidad/Estado 2</div>
+							<div class="col-3 align-self-center">Producto</div>
+							<div class="col-2 align-self-center">Tiempo y saldo <br>en mora</div>
+							<div class="col-2 align-self-center">Actualización</div>
+							<div class="col-2 align-self-center"></div>
+						</div>
+						<div class="row debts" *ngFor="let item of debtsService.filteredItems">
+							<div class="col-12 col-md-3 debt-logo align-self-center">
+								<img src="https://images-s3-ecs-sp-latam.s3.amazonaws.com/catchupon/aliados/{{item.nitCompany}}.png" class="logo"
+									alt="Logo aliado"
+									onerror="this.onerror=null; this.remove();">
+								<div class="info">
+									<div class="entity">{{item.nameCompany}}</div>
+									<div class="state debt" [ngClass]="{
+									'ok': item.accountStatuts==='AL DIA',
+									'deb': item.accountStatuts==='EN MORA',
+									'neg': item.accountStatuts==='EN NEGOCIACION',
+									'acuerdo': item.accountStatuts==='CON ACUERDO'
+								}">
+										{{item.accountStatuts}}</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-3 debt-prod align-self-center">
+								<span class="title-mob">{{item.nameProduct}}</span>
+								<span class="d-block currencyM">CTA No. **** **** {{item.numberAccount}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='EN NEGOCIACION'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="d-block currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='CON ACUERDO'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="d-block currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='AL DIA'">
+								<span class="title-mob">Saldo en mora </span>
+								<span>AL DIA</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='EN MORA'">
+								<span class="title-mob">Tiempo en mora </span>
+								{{item.delinquencyInDays}} días
+								<span class="d-block currencyM">$ {{item.balance | currency:'COP':'':'1.2-2' }}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-date align-self-center">
+								<span class="title-mob">Actualización </span>
+								<span class="d-block currencyM">{{item.dateDebt | date: 'dd MMMM yyyy' }}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-cta align-self-center" *ngIf="item.accountStatuts == 'EN MORA'">
+								<a (click)="openDeal(item)" class="btn btn-secundary mx-auto">Ponte al día <i class="arrow right"></i></a>
+							</div>
+							<div class="col-12 col-md-2 debt-cta align-self-center" *ngIf="item.accountStatuts != 'EN MORA'">
+								<a (click)='verEstado(item.de, item.nitCompany, item.numberAccount)' class="btn btn-outline mx-auto">Ver estado <i class="arrow right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>				
+				<!-- Reportes negociables -->
+				<!-- Otros Reportes -->
+				<div class="debt-container" *ngIf="otrosReportes">
+					<div class="intro-debts">
+						<div class="img-intro">
+							<img src="assets/images/all/Otros_reportes.svg" alt="Otros reportes"/>
+						</div>
+						<div class="text-intro">
+							<h3>Tienes <span>3 reportes negativos</span> por negociar con entidades no aliadas.</h3>
+							<p><span>Al ser obligaciones adquiridas con entidades no aliadas de Midatacrédito, las siguientes deudas</span> no son negociables en el portal de Ponte al día.</p>
+						</div>
+					</div>
+					<div class="debt-wrap" >
+						<div class="row head-tb">
+							<div class="col-3 align-self-center">Entidad/Estado 3</div>
+							<div class="col-3 align-self-center">Producto</div>
+							<div class="col-2 align-self-center">Tiempo y saldo <br>en mora</div>
+							<div class="col-2 align-self-center">Actualización</div>
+							<div class="col-2 align-self-center"></div>
+						</div>
+						<div class="row debts" *ngFor="let item of debtsService.filteredItems">
+							<div class="col-12 col-md-3 debt-logo align-self-center">
+								<img src="https://images-s3-ecs-sp-latam.s3.amazonaws.com/catchupon/aliados/{{item.nitCompany}}.png" class="logo"
+									alt="Logo aliado"
+									onerror="this.onerror=null; this.remove();">
+								<div class="info">
+									<div class="entity">{{item.nameCompany}}</div>
+									<div class="state debt" [ngClass]="{
+									'ok': item.accountStatuts==='AL DIA',
+									'deb': item.accountStatuts==='EN MORA',
+									'neg': item.accountStatuts==='EN NEGOCIACION',
+									'acuerdo': item.accountStatuts==='CON ACUERDO'
+								}">
+										{{item.accountStatuts}}</div>
+								</div>
+							</div>
+							<div class="col-12 col-md-3 debt-prod align-self-center">
+								<span class="title-mob">{{item.nameProduct}}</span>
+								<span class="d-block currencyM">CTA No. **** **** {{item.numberAccount}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='EN NEGOCIACION'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="d-block currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='CON ACUERDO'">
+								<span class="title-mob">Saldo en mora </span>
+								<span class="d-block currencyM">$ {{ item.arrangementAmount - item.totalPayment | currency:'COP':'':'1.2-2'}}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='AL DIA'">
+								<span class="title-mob">Saldo en mora </span>
+								<span>AL DIA</span>
+							</div>
+							<div class="col-12 col-md-2 debt-time align-self-center" *ngIf="item.accountStatuts==='EN MORA'">
+								<span class="title-mob">Tiempo en mora </span>
+								{{item.delinquencyInDays}} días
+								<span class="d-block currencyM">$ {{item.balance | currency:'COP':'':'1.2-2' }}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-date align-self-center">
+								<span class="title-mob">Actualización </span>
+								<span class="d-block currencyM">{{item.dateDebt | date: 'dd MMMM yyyy' }}</span>
+							</div>
+							<div class="col-12 col-md-2 debt-cta align-self-center" *ngIf="item.accountStatuts == 'EN MORA'">
+								<a (click)="openDeal(item)" class="btn btn-secundary mx-auto">Ponte al día <i class="arrow right"></i></a>
+							</div>
+							<div class="col-12 col-md-2 debt-cta align-self-center" *ngIf="item.accountStatuts != 'EN MORA'">
+								<a (click)='verEstado(item.de, item.nitCompany, item.numberAccount)' class="btn btn-outline mx-auto">Ver estado <i class="arrow right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>				
+				<!-- Otros Reportes -->
+				<div class="go-freemium" *ngIf="goFreemium">
+					<div class="img-go">
+						<img src="assets/images/all/go_freemium.svg" alt="Historia de Crédito">
+					</div>
+					<div class="txt-go">
+						<h3>Conocer tu historia de crédito puede ayudar a mejorar tu vida financiera.</h3>
+						<p>Te ayudamos a llevar a otro nivel tu perfil crediticio. Conoce tu historia de crédito Gratis.</p>
+						<button class="btn btn-outline-pink" id="midatacreditoGo">
+							<span>Ir a Midatacrédito</span>
+							<i class="arrow right"></i>
+						</button>
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-9 col-md-5 mx-auto">
+						<img src="assets/images/all/go_freemium.svg" class="icon" alt="Historia de Crédito">
+					</div>
+					<div class="col-10 col-md-7">
+						<h3>Conocer tu historia de crédito puede ayudar a mejorar tu vida financiera.</h3>
+						<p>Si quieres saber más sobre estas obligaciones financieras, ingresa a
+							<strong>Midatacrédito.</strong></p>
+						<a href="https://www.midatacredito.com" target="_blank" class="btn btn-outline ">Ir a
+							MidataCrédito <i class="arrow right"></i></a>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</section>
+<app-dfilters></app-dfilters>
+<app-deal></app-deal>

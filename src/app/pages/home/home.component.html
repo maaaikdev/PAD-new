@@ -1,0 +1,196 @@
+<div class="container-fluid main">
+	<div class="container home">
+		<div class="row pt-5">
+			<div class="col-md-6 col-12 align-middle mt-5">
+				<div class="row">
+					<div class="col-12 col-md-9">
+						<div class="title">
+							<h1>Te ayudamos de manera GRATUITA a negociar tus deudas</h1>
+							<hr>
+						</div>
+					</div>
+					<div class="col-12 col-md-8">
+						<p><strong>Negocia tus deudas y accede a los descuentos</strong> que las entidades tienen para ti, sin hacer filas o recibir llamadas incómodas.<p>
+					</div>
+					<div class="col-12 col-md-10">
+						<a *ngIf="!sesion.sesionCookie" class="btn btn-secundary btn-lg" href="{{loginUrl}}">Empezar<i
+								class="arrow right"></i></a>
+						<button *ngIf="sesion.sesionCookie" type="submit" class="btn btn-secundary btn-lg"
+							data-toggle="modal" data-target="#modal-info">Empezar <i class="arrow right"></i></button>
+					</div>
+				</div>
+				<!-- <div class="img-mob col-6 d-block d-sm-none">
+					<object class="" type="image/svg+xml" data="assets/icons/pontealdia.svg">
+						Your browser does not support SVG
+					</object>
+					d-none d-md-block
+				</div> -->
+			</div>
+			<div class="col-md-6 col-12 img-header text-right pt-5 d-none d-md-block">
+				<!-- <object class="" type="image/svg+xml" data="assets/icons/pontealdia.svg">
+					Your browser does not support SVG
+				</object> -->
+				<img src="assets/images/all/img_header_home.svg" alt="Ponte al Día" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container steps">
+		<div class="row">
+			<div class="col">
+				<div class="title-sec">
+					<h2>¿Cómo funciona Ponte al día?</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 item">
+				<object class="icon" type="image/svg+xml" data="assets/images/all/home_bullet_1.svg">
+					Your browser does not support SVG
+				</object>
+				<div class="sub-title">
+					<h3>Consulta <br>tus obligaciones</h3>
+				</div>
+				<p>Accede ilimitadamente para conocer con qué entidades tienes deudas en mora.</p>
+			</div>
+			<div class="col-md-4 item">
+				<object class="icon" type="image/svg+xml" data="assets/images/all/home_bullet3.svg">
+					Your browser does not support SVG
+				</object>
+				<div class="sub-title">
+					<h3>Negocia GRATIS <br>con nuestros aliados</h3>
+				</div>
+				<p>Teniendo en cuenta tu situación financiera, podrás realizar una propuesta al banco para ponerte al día.</p>
+			</div>
+			<div class="col-md-4 item">
+				<object class="icon" type="image/svg+xml" data="assets/images/all/home_bullet4.svg">
+					Your browser does not support SVG
+				</object>
+				<div class="sub-title">
+					<h3>Ponte al día con <br>el pago de tus deudas</h3>
+				</div>
+				<p>Finaliza tu acuerdo de pago con la entidad y resuelve tus deudas de manera rápida y sin filas.</p>
+			</div>
+		</div>
+	</div>
+	<div class="container allies">
+		<div class="row">
+			<div class="col">
+				<div class="title-sec">
+					<h2>Aliados Ponte al día</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="row allies-item justify-content-center">
+			<div *ngFor="let al of dataJsonAliados" class="col-4 col-md-2  align-self-center">
+				<div class="allie-logo">
+					<img src="{{al.url}}" alt="{{al.aliado}}">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid main-faq">
+	<div class="container faq">
+		<div class="row">
+			<div class="col">
+				<div class="title-sec">
+					<h2>{{sesion.datos.faq?.titulo}}</h2>
+					<hr>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-sm-6 d-none d-md-block">
+				<div class="img-faq">
+					<img src="assets/images/all/preguntas_frecuentes.svg" alt="Preguntas frecuentes - Ponte al Día" />
+					<!-- <object class="icon" type="image/svg+xml" data="assets/icons/faq.svg">
+						Your browser does not support SVG
+					</object> -->
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 ">
+				<div class="faq-txt">
+					<a href="" disabled class="faq-item">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt1}}</h3>
+						</div>						
+					</a>
+					<a href="" disabled class="faq-item ">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt2}}</h3>
+						</div>
+					</a>
+					<a href="" disabled class="faq-item ">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt3}}</h3>
+						</div>
+					</a>
+					<a href="" disabled class="faq-item ">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt4}}</h3>
+						</div>
+					</a>
+					<a href="" disabled class="faq-item ">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt5}}</h3>
+						</div>
+					</a>
+					<a href="" disabled class="faq-item ">
+						<div class="bullet">
+							<i class="arrow right"></i>
+						</div>
+						<div class="bullet-txt">
+							<h3>{{sesion.datos.faq?.txt6}}</h3>
+						</div>
+					</a>
+					<div class="">
+						<a routerLink="/faq" target="_blank" class="btn btn-outline-w btn-lg">
+							Ver más preguntas
+							<i class="arrow right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="midc">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-6 d-none d-sm-block ">
+				<img src="assets/images/all/MiDC_Desktop.svg" />
+				<!-- <object class="icon" type="image/svg+xml" data="assets/images/midtc.svg">
+					Your browser does not support SVG
+				</object> -->
+			</div>
+			<div class="col-12 col-md-6">
+				<img src="assets/images/all/go_freemium.svg" class="freemium-mobile d-block d-md-none"/>
+				<div class="sub-title">
+					<h2>{{sesion.datos.midatacredito?.titulo}}</h2>
+				</div>				
+				<p class="text-left">{{sesion.datos.midatacredito?.texto}}</p>
+				<a href="https://urldefense.com/v3/__https://www.midatacredito?.com**A!*inicio__;LyMv!!MfzFaTml5A!2_fg_dUpyJbUR-0R_KydDny--CF33AT50mnSfoyJzOk27Mr8C4oSL9SpkQscFPvuX6qG$"
+					target="_blank" class="btn btn-secundary btn-lg">Ingresa GRATIS<i class="arrow right"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
